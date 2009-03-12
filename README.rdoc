@@ -8,13 +8,13 @@ Yaml_conf is a simple solution to storing site wide preferences without having t
 
 Example:
 
-class AdminPref < YamlConfig::Base
-  fields :beta_mode
-end
+  class AdminPref < YamlConfig::Base
+    fields :beta_mode
+  end
 
-@admin_pref = AdminPref.new
-@admin_pref.beta_mode = true
-@admin_pref.save
+  @admin_pref = AdminPref.new
+  @admin_pref.beta_mode = true
+  @admin_pref.save
 
 == FEATURES/PROBLEMS:
 

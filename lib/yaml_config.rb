@@ -8,5 +8,5 @@ require 'yaml_config/class_inheritance'
 require 'yaml_config/base'
 
 module YamlConfig
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
 end
