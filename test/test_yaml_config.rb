@@ -4,11 +4,13 @@ class TestYamlConfig < Test::Unit::TestCase
   
   def setup
     @before_dir = AdminPref.data_dir    
-    @admin_pref = AdminPref.new    
+    @admin_pref = AdminPref.new 
   end
 
   def teardown
     AdminPref.data_dir(@before_dir)
+    admin = AdminPref.new({:beta_mode => true, :not_listed => "something"})
+    admin.save
   end
   
   def test_loads_file
@@ -76,6 +78,16 @@ class TestYamlConfig < Test::Unit::TestCase
     assert_equal @site_pref.example_after_hook_attribute, nil
     @site_pref.save
     assert_equal @site_pref.example_after_hook_attribute, "Bananas"        
+  end
+  
+  def test_config
+    assert_equal AdminPref.config['beta_mode'], true 
+  end
+
+  def test_saving_sets_config
+    @admin_pref.beta_mode = false
+    @admin_pref.save    
+    assert_equal AdminPref.config['beta_mode'], false
   end
   
 protected

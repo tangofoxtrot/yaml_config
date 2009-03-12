@@ -10,14 +10,18 @@ module YamlConfig
   class Base
     
     include ClassLevelInheritableAttributes
-    inheritable_attributes :before_save_hooks, :after_save_hooks
+    inheritable_attributes :before_save_hooks, :after_save_hooks, :config
     @before_save_hooks = []
     @after_save_hooks = []
-
+    
+    def self.config(options={})
+      @config ||= self.new(options)
+    end
+    
     def initialize(attributes = {})
       @yaml_attributes = self.class.setup
       @yaml_attributes.merge!(attributes.stringify_keys)
-      @attributes = @yaml_attributes
+      self.class.config = @attributes = @yaml_attributes
     end
 
     # Run this method to declare the fields of your model.
@@ -65,6 +69,7 @@ module YamlConfig
       File.open(self.class.data_file, 'w') do |file|
         file.write @attributes.to_yaml
       end
+      self.class.config = @attributes
       initiate_after_save
     end
 
