@@ -1,0 +1,17 @@
+History.txt
+Manifest.txt
+README.rdoc
+Rakefile
+lib/yaml_config.rb
+lib/yaml_config/base.rb
+lib/yaml_config/class_inheritance.rb
+lib/yaml_config/hash_stringify.rb
+script/console
+script/destroy
+script/generate
+test/fixtures/admin_pref.rb
+test/fixtures/config/adminpref.yml
+test/fixtures/config/sitepref.yml
+test/fixtures/site_pref.rb
+test/test_helper.rb
+test/test_yaml_config.rb

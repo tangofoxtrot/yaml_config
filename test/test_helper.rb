@@ -1,0 +1,6 @@
+RAILS_ROOT = File.dirname(__FILE__) + '/fixtures/'
+require 'stringio'
+require 'test/unit'
+require File.dirname(__FILE__) + '/../lib/yaml_config'
+require 'fixtures/admin_pref'
+require 'fixtures/site_pref'

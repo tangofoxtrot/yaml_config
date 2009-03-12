@@ -1,0 +1,4 @@
+--- 
+example_before_hook_attribute: Bananas
+example_after_hook_attribute: 
+comments_to_show: 10
